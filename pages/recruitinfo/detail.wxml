@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="head">
+    <image class="userinfo-avatar" src="{{user.wxAvatarUrl}}" background-size="cover"></image>
+    <view class="title">{{title}}</view>
+    <view>
+      <view class="region">{{region}}</view>
+      <view class='companyName'></view>
+    </view>
+  </view>
+  <view class="body">
+    <view>
+      <view class="acceptCount">{{acceptCount}}</view>
+    </view>
+    <view>
+      <view class="remuneration">薪酬 {{remuneration}}</view>
+      <view>
+        <view wx:if="{{requireAge != '无所谓'}}" class="tag">{{requireAge}}</view>
+        <view wx:if="{{requireSex != '无所谓'}}" class="tag">{{requireSex}}</view>
+      </view>
+      <view class="jobDesc">{{jobDesc}}</view>
+    </view>
+  </view>
+  <view class="bottom">
+    <button class="addRecruitInfoButton" bindtap="onTapAddRecruitInfo">我来招聘</button>
+    <button class="addAcceptInfoButton" bindtap="onTapAddAcceptInfo">我要应聘</button>
+  </view>
+</view>

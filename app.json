@@ -1,0 +1,26 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/member/my",
+    "pages/recruitinfo/add",
+    "pages/recruitinfo/detail"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "快来招聘",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "正在招聘"
+      },
+      {
+        "pagePath": "pages/member/my",
+        "text": "我的"
+      }
+    ]
+  }
+}

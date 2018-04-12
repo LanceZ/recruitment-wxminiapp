@@ -1,0 +1,4 @@
+/**index.wxss**/
+.recruitInfoList {
+  height: 120px
+}
