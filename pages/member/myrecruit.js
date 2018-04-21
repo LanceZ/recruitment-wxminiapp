@@ -1,14 +1,14 @@
-//my.js
+//myrecruit.js
 const app = getApp()
 
 Page({
   data: {
-    user: {}
+    recruitInfoList: [] 
   },
-  onLoad: function() {
+  onLoad: function () {
     var that = this;
     wx.request({
-      url: app.globalData.apiDomain + '/api/user',
+      url: app.globalData.apiDomain + '/api/user/recruitinfo',
       header: {
         'content-type': 'application/json',
         'cookie': "JSESSIONID=" + wx.getStorageSync('sessionid')
@@ -26,9 +26,9 @@ Page({
         }
 
         that.setData({
-          user: res.data.user
+          recruitInfoList: res.data.recruitInfoList.content
         });
       }
     });
   }
-})
+});

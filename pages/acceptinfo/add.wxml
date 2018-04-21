@@ -1,0 +1,24 @@
+<!--add.wxml-->
+<view class="container">
+  <form bindsubmit="formSubmit">
+    <view class="line">
+      <view class="name">姓名</view>
+      <input name="userName" class="input" value="{{userName}}" />
+    </view>
+    <view class="line">
+      <view class="mobile">手机</view>
+      <input name="userMobile" class="input" value="{{userMobile}}" />
+    </view>
+    <view class="line">
+      <view class="email">邮箱</view>
+      <input name="userEmail" class="input" value="{{userEmail}}" />
+    </view>
+    <view class="line">
+      <view class="desc">一句话简介</view>
+      <textarea name="userDesc" class="input" auto-height value="{{userDesc}}" />
+    </view>
+    <view class="bottom">
+      <button formType="submit">提交</button>
+    </view>
+  </form>
+</view>

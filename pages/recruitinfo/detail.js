@@ -63,5 +63,11 @@ Page({
     wx.navigateTo({
       url: '../recruitinfo/add'
     });
+  },
+  onTapAddAcceptInfo: function() {
+    var that = this;
+    wx.navigateTo({
+      url: '../acceptinfo/add?recruitInfoId=' + that.data.id
+    });
   }
 })

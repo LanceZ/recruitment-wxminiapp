@@ -1,1 +1,18 @@
 <!--my.wxml-->
+<view class="container">
+  <view class='head'>
+    <image class="userinfo-avatar" src="{{user.wxAvatarUrl}}" background-size="cover"></image>
+    <view class='name'>{{user.userName ? user.userName : user.wxNickName}}</view>
+  </view>
+  <view class='body'>
+    <view class='line'>
+      <navigator url='/pages/member/myinfo'>我的资料</navigator>
+    </view>
+    <view class='line'>
+      <navigator url='/pages/member/myrecruit'>我的招聘</navigator>
+    </view>
+    <view class='line'>
+      <navigator url='/pages/member/myaccept'>我的应聘</navigator>
+    </view>
+  </view>
+</view>

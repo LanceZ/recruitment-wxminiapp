@@ -3,7 +3,11 @@
     "pages/index/index",
     "pages/member/my",
     "pages/recruitinfo/add",
-    "pages/recruitinfo/detail"
+    "pages/recruitinfo/detail",
+    "pages/acceptinfo/add",
+    "pages/member/myinfo",
+    "pages/member/myrecruit",
+    "pages/member/myaccept"
   ],
   "window":{
     "backgroundTextStyle":"light",
