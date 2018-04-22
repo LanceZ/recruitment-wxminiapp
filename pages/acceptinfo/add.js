@@ -24,14 +24,11 @@ Page({
       success: function (res) {
         console.log(res.data);
 
-        if (res.data.resCode != "0") {
-          wx.showToast({
-            title: res.data.resMsg,
-            icon: 'none',
-            duration: 2000
-          });
+        if (res.data.resCode == "11") {
+          app.login();
           return;
         }
+        
         var user = res.data.user;
         that.setData({
           userName: user.userName,
@@ -64,6 +61,12 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
+
+        if (res.data.resCode == "11") {
+          app.login();
+          return;
+        }
+
         if (res.data.resCode != "0") {
           wx.showToast({
             title: res.data.resMsg,
@@ -72,6 +75,7 @@ Page({
           });
           return;
         }
+        
         wx.showToast({
           title: '应聘成功',
           icon: 'success',

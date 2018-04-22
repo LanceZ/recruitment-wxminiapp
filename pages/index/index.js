@@ -61,14 +61,8 @@ Page({
       success: function (res) {
         console.log(res.data);
 
-        if (res.data.resCode != "0") {
-          console.log(res.data.resMsg);
-          /*wx.showToast({
-            title: res.data.resMsg,
-            icon: 'none',
-            duration: 2000
-          });*/
-          return;
+        if (res.data.resCode == "11") {
+          app.login();
         }
       }
     });
@@ -118,12 +112,8 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
-        if (res.data.resCode != "0") {
-          wx.showToast({
-            title: res.data.resMsg,
-            icon: 'none',
-            duration: 2000
-          });
+        if (res.data.resCode == "11") {
+          app.login();
           return;
         }
         var list = that.data.recruitInfoList;

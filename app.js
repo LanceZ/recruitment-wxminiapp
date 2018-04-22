@@ -5,6 +5,10 @@ App({
     userInfo: null
   },
   onLaunch: function () {
+    this.login();
+    this.getUser();
+  },
+  login: function () {
     // 登录
     wx.login({
       success: res => {
@@ -28,7 +32,8 @@ App({
         }
       }
     });
-
+  },
+  getUser: function () {
     // 获取用户信息
     wx.getSetting({
       success: res => {

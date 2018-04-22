@@ -35,6 +35,11 @@ Page({
       success: function (res) {
         console.log(res.data);
 
+        if (res.data.resCode == "11") {
+          app.login();
+          return;
+        }
+
         if (res.data.resCode != "0") {
           wx.showToast({
             title: res.data.resMsg,
@@ -101,6 +106,12 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
+
+        if (res.data.resCode == "11") {
+          app.login();
+          return;
+        }
+
         if (res.data.resCode != "0") {
           wx.showToast({
             title: res.data.resMsg,
@@ -109,16 +120,18 @@ Page({
           });
           return;
         }
+
         wx.showToast({
           title: '发布成功',
           icon: 'success',
           duration: 2000
-        })
+        });
+
         var pages = getCurrentPages();
         var prevPage = pages[pages.length - 2];
         prevPage.setData({
           relaod: true
-        })
+        });
         wx.navigateBack();
       }
     });

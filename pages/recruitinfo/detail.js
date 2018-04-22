@@ -32,14 +32,11 @@ Page({
       success: function (res) {
         console.log(res.data);
 
-        if (res.data.resCode != "0") {
-          wx.showToast({
-            title: res.data.resMsg,
-            icon: 'none',
-            duration: 2000
-          });
+        if (res.data.resCode == "11") {
+          app.login();
           return;
         }
+        
         var recruitInfo = res.data.recruitInfo;
         that.setData({
           title: recruitInfo.title,
@@ -69,5 +66,11 @@ Page({
     wx.navigateTo({
       url: '../acceptinfo/add?recruitInfoId=' + that.data.id
     });
-  }
+  },
+  onTapListAcceptInfo: function () {
+    var that = this;
+    wx.navigateTo({
+      url: '../acceptinfo/?recruitInfoId=' + that.data.id
+    });
+  },
 })

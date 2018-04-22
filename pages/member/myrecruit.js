@@ -16,12 +16,8 @@ Page({
       success: function (res) {
         console.log(res.data);
 
-        if (res.data.resCode != "0") {
-          wx.showToast({
-            title: res.data.resMsg,
-            icon: 'none',
-            duration: 2000
-          });
+        if (res.data.resCode == "11") {
+          app.login();
           return;
         }
 
@@ -29,6 +25,11 @@ Page({
           recruitInfoList: res.data.recruitInfoList.content
         });
       }
+    });
+  },
+  onTapRecruitInfoDetail: function (e) {
+    wx.navigateTo({
+      url: '../recruitinfo/detail?id=' + e.currentTarget.dataset.id
     });
   }
 });
