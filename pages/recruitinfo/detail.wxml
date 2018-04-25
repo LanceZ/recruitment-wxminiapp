@@ -5,7 +5,7 @@
     <view class="title">{{title}}</view>
     <view>
       <view class="region">{{region}}</view>
-      <view class='companyName'></view>
+      <view class='companyName'>{{companyName}}</view>
     </view>
   </view>
   <view class="body">

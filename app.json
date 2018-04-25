@@ -5,9 +5,9 @@
     "pages/recruitinfo/add",
     "pages/recruitinfo/detail",
     "pages/acceptinfo/add",
+    "pages/acceptinfo/list",
     "pages/member/myinfo",
-    "pages/member/myrecruit",
-    "pages/member/myaccept"
+    "pages/member/myrecruit"
   ],
   "window":{
     "backgroundTextStyle":"light",

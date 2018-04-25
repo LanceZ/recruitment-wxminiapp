@@ -70,7 +70,7 @@ Page({
   onTapListAcceptInfo: function () {
     var that = this;
     wx.navigateTo({
-      url: '../acceptinfo/?recruitInfoId=' + that.data.id
+      url: '../acceptinfo/list?by=recruitInfoId&recruitInfoId=' + that.data.id
     });
   },
 })

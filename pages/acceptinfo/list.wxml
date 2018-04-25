@@ -1,8 +1,15 @@
 <!--myaccept.wxml-->
 <view class="container">
+  <view class='recruitInfo'>
+    <view class="title">{{recruitInfo.title}}</view>
+    <view>
+      <view class="region">{{recruitInfo.region}}</view>
+      <view class='companyName'>{{recruitInfo.companyName}}</view>
+    </view>
+  </view>
   <view class="message" wx:if="{{acceptInfoList.length <= 0}}">暂无应聘记录</view>
   <scroll-view wx:if="{{acceptInfoList.length > 0}}" scroll-y wx:for="{{acceptInfoList}}" wx:key="id" class="acceptInfoList">
-    <view class="items" data-id="{{item.id}}" bindtap='onTapAcceptInfoDetail'>
+    <view class="items" data-id="{{item.id}}">
       <view class="top">
         <view class="id">{{item.id}}</view>
         <view class="title">{{item.recruitInfo.title}}</view>
