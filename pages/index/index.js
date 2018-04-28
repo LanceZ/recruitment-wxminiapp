@@ -43,6 +43,10 @@ Page({
       hasUserInfo: true
     });
 
+    if (wx.getStorageSync('hassyncuserinfo_' + wx.getStorageSync('sessionid'))) {
+      return;
+    }
+
     wx.request({
       url: app.globalData.apiDomain + '/api/user',
       method: "PUT",
@@ -61,9 +65,7 @@ Page({
       success: function (res) {
         console.log(res.data);
 
-        if (res.data.resCode == "11") {
-          app.login();
-        }
+        wx.setStorageSync('hassyncuserinfo_' + wx.getStorageSync('sessionid'), true);
       }
     });
   },
@@ -112,10 +114,7 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
-        if (res.data.resCode == "11") {
-          app.login();
-          return;
-        }
+        
         var list = that.data.recruitInfoList;
         list = list.concat(res.data.recruitInfoList.content);
 

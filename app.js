@@ -1,11 +1,38 @@
 //app.js
 App({
   globalData: {
+    resCode: {
+      success: 0,
+      checkUserFail: 12
+    },
     apiDomain: "http://127.0.0.1:8080",
     userInfo: null
   },
+  onShow: function () {
+    var that = this;
+    wx.checkSession({
+      success: function () {
+        wx.request({
+          url: that.globalData.apiDomain + '/api/user',
+          header: {
+            'content-type': 'application/json',
+            'cookie': "JSESSIONID=" + wx.getStorageSync('sessionid')
+          },
+          success: function (res) {
+            console.log(res.data);
+
+            if (res.data.resCode == that.globalData.resCode.checkUserFail) {
+              that.login();
+            }
+          }
+        });
+      },
+      fail: function () {
+        that.login();
+      }
+    });
+  },
   onLaunch: function () {
-    this.login();
     this.getUser();
   },
   login: function () {

@@ -23,11 +23,6 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
-
-        if (res.data.resCode == "11") {
-          app.login();
-          return;
-        }
         
         var user = res.data.user;
         that.setData({
@@ -61,11 +56,6 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
-
-        if (res.data.resCode == "11") {
-          app.login();
-          return;
-        }
 
         if (res.data.resCode != "0") {
           wx.showToast({

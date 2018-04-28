@@ -16,11 +16,6 @@ Page({
       success: function (res) {
         console.log(res.data);
 
-        if (res.data.resCode == "11") {
-          app.login();
-          return;
-        }
-
         that.setData({
           recruitInfoList: res.data.recruitInfoList.content
         });

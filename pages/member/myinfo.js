@@ -16,11 +16,6 @@ Page({
       success: function (res) {
         console.log(res.data);
 
-        if (res.data.resCode == "11") {
-          app.login();
-          return;
-        }
-
         that.setData({
           user: res.data.user
         });
@@ -46,13 +41,8 @@ Page({
       success: function (res) {
         console.log(res.data);
 
-        if (res.data.resCode != "0") {
-          wx.showToast({
-            title: res.data.resMsg,
-            icon: 'none',
-            duration: 2000
-          });
-          return;
+        if (res.data.resCode != app.globalData.resCode.success) {
+          throw new Error(res.data.resCode);
         }
 
         wx.showToast({

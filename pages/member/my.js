@@ -5,7 +5,9 @@ Page({
   data: {
     user: {}
   },
-  onLoad: function() {
+  onLoad: function () {
+  },
+  onShow: function() {
     var that = this;
     wx.request({
       url: app.globalData.apiDomain + '/api/user',
@@ -15,11 +17,6 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
-
-        if (res.data.resCode == "11") {
-          app.login();
-          return;
-        }
 
         that.setData({
           user: res.data.user
