@@ -23,7 +23,7 @@
   </view>
   <view class="bottom">
     <button class="addRecruitInfoButton" bindtap="onTapAddRecruitInfo">我来招聘</button>
-    <button wx:if="{{user && userId != user.id}}" class="addAcceptInfoButton" bindtap="onTapAddAcceptInfo">我要应聘</button>
+    <button  class="addAcceptInfoButton" bindtap="onTapAddAcceptInfo">我要应聘</button>
     <button wx:if="{{user && userId == user.id}}" class="listAcceptInfoButton" bindtap="onTapListAcceptInfo">应聘名单</button>
   </view>
 </view>

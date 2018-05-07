@@ -1,8 +1,9 @@
 <!--my.wxml-->
 <view class="container">
   <view class='head'>
-    <image class="userinfo-avatar" src="{{user.wxAvatarUrl}}" background-size="cover"></image>
-    <view class='name'>{{user.userName ? user.userName : user.wxNickName}}</view>
+    <open-data type="userAvatarUrl"></open-data>
+    <open-data wx:if="{{! user.userName}}" type="userNickName"></open-data>
+    <view class='name' wx:if="{{user.userName}}">{{user.userName}}</view>
   </view>
   <view class='body'>
     <view class='line'>

@@ -1,24 +1,46 @@
 <!--add.wxml-->
-<view class="container">
+<view class="page">
   <form bindsubmit="formSubmit">
-    <view class="line">
-      <view class="name">姓名</view>
-      <input name="userName" class="input" value="{{userName}}" />
-    </view>
-    <view class="line">
-      <view class="mobile">手机</view>
-      <input name="userMobile" class="input" value="{{userMobile}}" />
-    </view>
-    <view class="line">
-      <view class="email">邮箱</view>
-      <input name="userEmail" class="input" value="{{userEmail}}" />
-    </view>
-    <view class="line">
-      <view class="desc">一句话简介</view>
-      <textarea name="userDesc" class="input" auto-height value="{{userDesc}}" />
-    </view>
-    <view class="bottom">
-      <button formType="submit">提交</button>
+    <view class="page__bd">
+      <view class="weui-cells__title"></view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">姓名</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="userName" value="{{userName}}" placeholder="请输入姓名" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">手机</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input name="userMobile" class="weui-input" value="{{userMobile}}" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">邮箱</view>
+          </view>
+          <view class="weui-cell__hd">
+            <input name="userEmail" class="weui-input" value="{{userEmail}}" />
+          </view>
+        </view>
+        <view class="weui-cells__title">一句话简介</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <textarea name="userDesc" class="weui-textarea" style="height: 3.3em" value="{{userDesc}}" />
+              <view class="weui-textarea-counter">0/200</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" formType="submit">提交</button>
+      </view>
     </view>
   </form>
 </view>

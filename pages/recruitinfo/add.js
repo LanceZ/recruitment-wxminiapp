@@ -9,11 +9,8 @@ Page({
     companyName: "",
     region: [],
     requireSex: "",
-    sexs: [
-      { name: '无所谓', value: '无所谓', checked: 'true' },
-      { name: '男', value: '男' },
-      { name: '女', value: '女' },
-    ],
+    requireSexIndex: 0,
+    sexs: ['无所谓', '男', '女'],
     requireAge: "",
     requireAgesIndex: 0,
     requireAges: ["无所谓", "00后", "95后", "90后", "85后", "80后", "70后"],
@@ -60,7 +57,7 @@ Page({
   },
   onSexChange: function (e) {
     this.setData({
-      requireSex: e.detail.value
+      requireSex: this.data.sexs[e.detail.value]
     });
   },
   onAgeChange: function (e) {
@@ -79,7 +76,7 @@ Page({
         remuneration: that.data.remunerations[form.remuneration],
         companyName: form.companyName,
         region: form.region[0] + "." + form.region[1] + "." + form.region[2],
-        requireSex: form.requireSex,
+        requireSex: that.data.sexs[form.requireSex],
         requireAge: that.data.requireAges[form.requireAge],
         jobDesc: form.jobDesc,
         recruitNumber: form.recruitNumber,
