@@ -1,29 +1,51 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="head">
+<view class="page">
+  <view class="page__hd">
     <image class="userinfo-avatar" src="{{user.wxAvatarUrl}}" background-size="cover"></image>
-    <view class="title">{{title}}</view>
-    <view>
-      <view class="region">{{region}}</view>
-      <view class='companyName'>{{companyName}}</view>
+
+    <view class="page__title">{{title}}</view>
+
+    <view class='page__desc'>
+      <view>{{region}}</view>
+      <view>{{companyName}}</view>
     </view>
   </view>
-  <view class="body">
-    <view>
-      <view class="acceptCount">{{acceptCount}}</view>
-    </view>
-    <view>
-      <view class="remuneration">薪酬 {{remuneration}}</view>
-      <view>
-        <view wx:if="{{requireAge != '无所谓'}}" class="tag">{{requireAge}}</view>
-        <view wx:if="{{requireSex != '无所谓'}}" class="tag">{{requireSex}}</view>
+  <view class="page__bd">
+    <view class='weui-form-preview'>
+      <view class='weui-form-preview__bd'>
+
+        <view class='weui-form-preview__item'>
+          <view class="weui-form-preview__label">应聘人数</view>
+          <view class="weui-form-preview__value">{{acceptCount ? acceptCount : 0}}</view>
+        </view>
+
+        <view class='weui-form-preview__item'>
+          <view class="weui-form-preview__label">薪酬</view>
+          <view class="weui-form-preview__value">{{remuneration}}</view>
+        </view>
+
+        <view wx:if="{{requireAge != '无所谓'}}" class='weui-form-preview__item'>
+          <view class="weui-form-preview__label">年龄要求</view>
+          <view class="weui-form-preview__value">{{requireAge}}</view>
+        </view>
+
+        <view wx:if="{{requireSex != '无所谓'}}" class='weui-form-preview__item'>
+          <view class="weui-form-preview__label">性别要求</view>
+          <view class="weui-form-preview__value">{{requireSex}}</view>
+        </view>
+
+        <view class='weui-form-preview__item'>
+          <view class="weui-form-preview__label">职位描述</view>
+          <view class="weui-form-preview__value">{{jobDesc}}</view>
+        </view>
       </view>
-      <view class="jobDesc">{{jobDesc}}</view>
+      <view class="weui-form-preview__ft">
+        <navigator url="../recruitinfo/add" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">我来招聘</navigator>
+
+        <navigator wx:if="{{user && userId != user.id}}" url='../acceptinfo/add?recruitInfoId={{id}}' class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">我要应聘</navigator>
+
+        <navigator wx:if="{{user && userId == user.id}}" url='../acceptinfo/list?by=recruitInfoId&recruitInfoId={{id}}' class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active">应聘名单</navigator>
+      </view>
     </view>
-  </view>
-  <view class="bottom">
-    <button class="addRecruitInfoButton" bindtap="onTapAddRecruitInfo">我来招聘</button>
-    <button  class="addAcceptInfoButton" bindtap="onTapAddAcceptInfo">我要应聘</button>
-    <button wx:if="{{user && userId == user.id}}" class="listAcceptInfoButton" bindtap="onTapListAcceptInfo">应聘名单</button>
   </view>
 </view>

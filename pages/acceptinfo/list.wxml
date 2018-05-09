@@ -1,26 +1,28 @@
 <!--myaccept.wxml-->
-<view class="container">
-  <view class='recruitInfo'>
-    <view class="title">{{recruitInfo.title}}</view>
-    <view>
-      <view class="region">{{recruitInfo.region}}</view>
-      <view class='companyName'>{{recruitInfo.companyName}}</view>
+<view class="page">
+  <view class='page__hd'>
+    <view class="page__title">{{recruitInfo.title}}</view>
+    <view class='page__desc'>
+      <view>{{recruitInfo.region}}</view>
+      <view>{{recruitInfo.companyName}}</view>
     </view>
   </view>
-  <view class="message" wx:if="{{acceptInfoList.length <= 0}}">暂无应聘记录</view>
-  <scroll-view wx:if="{{acceptInfoList.length > 0}}" scroll-y wx:for="{{acceptInfoList}}" wx:key="id" class="acceptInfoList">
-    <view class="items" data-id="{{item.id}}">
-      <view class="top">
-        <view class="id">{{item.id}}</view>
-        <view class="title">{{item.recruitInfo.title}}</view>
-        <view class="name">{{item.userName}}</view>
+  <view class='page__bd'>
+    <view class="message" wx:if="{{acceptInfoList.length <= 0}}">暂无应聘记录</view>
+    <scroll-view wx:if="{{acceptInfoList.length > 0}}" scroll-y wx:for="{{acceptInfoList}}" wx:key="id" class="acceptInfoList">
+      <view class="items" data-id="{{item.id}}">
+        <view class="top">
+          <view class="id">{{item.id}}</view>
+          <view class="title">{{item.recruitInfo.title}}</view>
+          <view class="name">{{item.userName}}</view>
+        </view>
+        <view class="content">
+          <view class="userMobile">{{item.userMobile}}</view>
+          <view class="userEmail">{{item.userEmail}}</view>
+        </view>
+        <view class="bottom">
+        </view>
       </view>
-      <view class="content">
-        <view class="userMobile">{{item.userMobile}}</view>
-        <view class="userEmail">{{item.userEmail}}</view>
-      </view>
-      <view class="bottom">
-      </view>
-    </view>
-  </scroll-view>
+    </scroll-view>
+  </view>
 </view>
